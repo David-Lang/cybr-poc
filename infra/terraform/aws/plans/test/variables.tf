@@ -20,3 +20,6 @@ variable "conjur_api_key" {
 # AWS Settings
 variable "aws_region" { type = string }
 #------------------------------------------------------------------------------
+# Plan Settings
+variable "owner" { type = string }
+#------------------------------------------------------------------------------

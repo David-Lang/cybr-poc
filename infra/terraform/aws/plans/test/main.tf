@@ -1,25 +1,12 @@
-variable "db_password" {
-  type = string
-  default = "HelloPassword"
-}
-
-data "aws_caller_identity" "current" {}
-
-data "conjur_secret" "aws_access_key" {
-  name = "data/vault/cybr-poc-terraform/cybr-poc-se-amer-aws/AWSAccessKeyID"
-}
-
-data "conjur_secret" "aws_secret_key" {
-  name = "data/vault/cybr-poc-terraform/cybr-poc-se-amer-aws/password"
-}
-
-# data.conjur_secret.db_password.value will be set by the Conjur Provider
-output "db_password_output" {
-  value = var.db_password
-  sensitive = true
-}
-
-output "aws_identity_arn" {
-  value = data.aws_caller_identity.current.arn
-  sensitive = false
+module "aws-vpc" {
+  source                  = "../../modules/aws-vpc"
+  aws_region              = var.aws_region
+  name_prefix             = local.name_prefix
+  plan_name               = ""
+  common_tags             = local.common_tags
+  vpc_cidr = local.vpc_cidr
+  public_subnets = local.public_subnets
+  private_subnets = local.private_subnets
+  # enable nat gateway for lambda traffic if needed
+  enable_nat_gateway = false
 }
