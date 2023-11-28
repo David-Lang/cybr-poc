@@ -6,11 +6,11 @@ variable "db_password" {
 data "aws_caller_identity" "current" {}
 
 data "conjur_secret" "aws_access_key" {
-  name = "data/vault/cybr-poc/cybr-poc-se-amer-aws/AWSAccessKeyID"
+  name = "data/vault/cybr-poc-terraform/cybr-poc-se-amer-aws/AWSAccountID"
 }
 
 data "conjur_secret" "aws_secret_key" {
-  name = "data/vault/cybr-poc/cybr-poc-se-amer-aws/password"
+  name = "data/vault/cybr-poc-terraform/cybr-poc-se-amer-aws/password"
 }
 
 # data.conjur_secret.db_password.value will be set by the Conjur Provider
