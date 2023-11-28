@@ -2,8 +2,7 @@ data "aws_availability_zones" "available" {}
 
 module "lab_vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 3.18"
-  #version = "~> 5.2"
+  version = "~> 5.2"
 
   cidr = var.vpc_cidr
   azs  = data.aws_availability_zones.available.names

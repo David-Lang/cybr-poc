@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     conjur = {
-      source = "cyberark/conjur"
+      source  = "cyberark/conjur"
       version = "0.6.3"
     }
     aws = {
@@ -13,9 +13,9 @@ terraform {
 
 provider "conjur" {
   appliance_url = var.conjur_url
-  account = var.conjur_account
-  login = var.conjur_login
-  api_key = var.conjur_api_key
+  account       = var.conjur_account
+  login         = var.conjur_login
+  api_key       = var.conjur_api_key
 }
 
 //noinspection HILUnresolvedReference
