@@ -17,3 +17,10 @@ provider "conjur" {
   login = var.conjur_login
   api_key = var.conjur_api_key
 }
+
+//noinspection HILUnresolvedReference
+provider "aws" {
+  region     = var.aws_region
+  access_key = data.conjur_secret.aws_access_key.value
+  secret_key = data.conjur_secret.aws_secret_key.value
+}
