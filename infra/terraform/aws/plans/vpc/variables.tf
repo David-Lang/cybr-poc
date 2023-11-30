@@ -17,6 +17,17 @@ variable "conjur_api_key" {
   sensitive = true
 }
 #------------------------------------------------------------------------------
+# Conjur Secrets
+variable "conjur_id_aws_access_key" {
+  type      = string
+  sensitive = true
+}
+variable "conjur_id_aws_secret_key" {
+  type      = string
+  sensitive = true
+}
+#
+#------------------------------------------------------------------------------
 # AWS Settings
 variable "aws_region" { type = string }
 #------------------------------------------------------------------------------

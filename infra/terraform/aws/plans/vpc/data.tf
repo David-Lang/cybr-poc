@@ -1,9 +1,9 @@
 data "aws_caller_identity" "current" {}
 
 data "conjur_secret" "aws_access_key" {
-  name = "data/vault/cybr-poc-terraform/cybr-poc-se-amer-aws/AWSAccessKeyID"
+  name = var.conjur_id_aws_access_key
 }
 
 data "conjur_secret" "aws_secret_key" {
-  name = "data/vault/cybr-poc-terraform/cybr-poc-se-amer-aws/password"
+  name = var.conjur_id_aws_secret_key
 }
