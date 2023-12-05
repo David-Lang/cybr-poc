@@ -12,7 +12,7 @@ locals {
     Purpose   = "cybr-poc"
     Terraform = "true"
     Workspace = terraform.workspace
-    Plan      = "cpm"
+    Plan      = var.plan_name
     CreatedBy = data.aws_caller_identity.current.arn
     # To prevent installing the SSM Agent
     CA_iSSMExclude = "YES"

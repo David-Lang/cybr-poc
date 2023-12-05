@@ -33,6 +33,7 @@ variable "aws_region" { type = string }
 #------------------------------------------------------------------------------
 # Plan Settings
 variable "owner" { type = string }
+variable "plan_name" { type = string }
 #------------------------------------------------------------------------------
 # Security Group Settings
 variable "allowed_cidr_blocks" {

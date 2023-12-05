@@ -2,7 +2,7 @@ module "aws-vpc" {
   source          = "../../modules/aws-vpc"
   aws_region      = var.aws_region
   name_prefix     = local.name_prefix
-  plan_name       = ""
+  plan_name       = var.plan_name
   common_tags     = local.common_tags
   vpc_cidr        = local.vpc_cidr
   public_subnets  = local.public_subnets
