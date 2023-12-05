@@ -48,3 +48,8 @@ variable "lab_pwd" {
   description = "Master Pass must be 12 chars, 2 Upper, 2 Digit, 2 Special"
 }
 #------------------------------------------------------------------------------
+# Terraform Cloud values
+variable "terraform_cloud_api_key" { default = "false" }
+variable "terraform_cloud_org_name" { default = "false" }
+variable "terraform_cloud_ws_id" { type = string }
+#------------------------------------------------------------------------------

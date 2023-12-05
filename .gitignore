@@ -13,4 +13,4 @@
 *.idea/workspace.xml
 secrets/*
 test_assets/*
-test_build.sh
+build_with_secrets.sh

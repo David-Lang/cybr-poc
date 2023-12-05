@@ -34,3 +34,8 @@ variable "aws_region" { type = string }
 # Plan Settings
 variable "owner" { type = string }
 #------------------------------------------------------------------------------
+# Terraform Cloud values
+variable "terraform_cloud_api_key" { default = "false" }
+variable "terraform_cloud_org_name" { default = "false" }
+variable "terraform_cloud_ws_id" { type = string }
+#------------------------------------------------------------------------------

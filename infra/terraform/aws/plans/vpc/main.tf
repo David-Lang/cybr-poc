@@ -8,5 +8,8 @@ module "aws-vpc" {
   public_subnets  = local.public_subnets
   private_subnets = local.private_subnets
   # enable nat gateway for lambda traffic if needed
-  enable_nat_gateway = false
+  enable_nat_gateway       = false
+  terraform_cloud_api_key  = var.terraform_cloud_api_key
+  terraform_cloud_org_name = var.terraform_cloud_org_name
+  terraform_cloud_ws_id    = var.terraform_cloud_ws_id
 }
