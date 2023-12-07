@@ -1,6 +1,6 @@
 resource "aws_instance" "compute" {
   ami                    =  data.aws_ami.win_server.id
-  instance_type          = "t3.medium"
+  instance_type          = var.compute_instance_type
   key_name               = var.keypair_name
   user_data              = data.template_file.userdata.rendered
   vpc_security_group_ids = [aws_security_group.compute_win_sg.id, var.allowlist_sg_id]

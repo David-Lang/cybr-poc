@@ -10,6 +10,7 @@ variable "keypair_name" { type = string }
 #------------------------------------------------------------------------------
 #
 variable "compute_name" { type = string }
+variable "compute_instance_type" { type = string }
 variable "lab_pwd" { type = string }
 #------------------------------------------------------------------------------
 #

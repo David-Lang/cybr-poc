@@ -45,4 +45,5 @@ module "aws-compute-win" {
   public_subnet_id  = module.aws-vpc.vpc_public_subnet_ids[0]
   vpc_cidr          = module.aws-vpc.vpc_cidr
   vpc_id            = module.aws-vpc.vpc_id
+  compute_instance_type = "t3.xlarge"
 }
