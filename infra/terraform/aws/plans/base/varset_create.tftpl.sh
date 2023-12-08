@@ -88,5 +88,7 @@ curl -X POST \
          }
        }
      }
-     ' | jq . >> varset_create.log
+     '
+
+ #' | jq . >> varset_create.log
 
