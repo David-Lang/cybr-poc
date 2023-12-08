@@ -58,6 +58,30 @@ curl -X POST \
                    "value": "${vpc_public_subnet_ids}",
                    "category": "terraform"
                  }
+               },
+               {
+                 "type": "vars",
+                 "attributes": {
+                   "key": "keypair_name",
+                   "value": "${keypair_name}",
+                   "category": "terraform"
+                 }
+               },
+               {
+                 "type": "vars",
+                 "attributes": {
+                   "key": "allowlist_sg_id",
+                   "value": "${allowlist_sg_id}",
+                   "category": "terraform"
+                 }
+               },
+               {
+                 "type": "vars",
+                 "attributes": {
+                   "key": "base_tags",
+                   "value": "${base_tags}",
+                   "category": "terraform"
+                 }
                }
              ]
            }

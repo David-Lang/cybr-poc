@@ -1,11 +1,11 @@
 resource "aws_instance" "compute" {
-  ami                    =  data.aws_ami.win_server.id
+  ami                    = data.aws_ami.win_server.id
   instance_type          = var.compute_instance_type
   key_name               = var.keypair_name
   user_data              = data.template_file.userdata.rendered
   vpc_security_group_ids = [aws_security_group.compute_win_sg.id, var.allowlist_sg_id]
   subnet_id              = var.public_subnet_id
-  tags = merge(var.common_tags, { Name = "${var.name_prefix}-${var.compute_name}" })
+  tags                   = merge(var.common_tags, { Name = "${var.name_prefix}-${var.compute_name}" })
 }
 
 resource "aws_eip" "compute" {
@@ -27,27 +27,27 @@ resource "aws_security_group" "compute_win_sg" {
   }
 
   ingress {
-    description      = "HTTPS"
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
-    cidr_blocks      = [var.vpc_cidr]
+    description = "HTTPS"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = [var.vpc_cidr]
   }
 
   ingress {
-    description      = "ICMP"
-    from_port        = -1
-    to_port          = -1
-    protocol         = "icmp"
-    cidr_blocks      = [var.vpc_cidr]
+    description = "ICMP"
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = [var.vpc_cidr]
   }
 
   ingress {
-    description      = "RDP"
-    from_port        = 3389
-    to_port          = 3389
-    protocol         = "tcp"
-    cidr_blocks      = [var.vpc_cidr]
+    description = "RDP"
+    from_port   = 3389
+    to_port     = 3389
+    protocol    = "tcp"
+    cidr_blocks = [var.vpc_cidr]
   }
 
   egress {

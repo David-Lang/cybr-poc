@@ -2,20 +2,17 @@
 #------------------------------------------------------------------------------
 #
 variable "aws_region" { type = string }
-variable "common_tags" { type = map(string) }
+#variable "base_tags" { type = map(string) }
+variable "base_tags_json" { type = string }
 variable "name_prefix" { type = string }
+variable "plan_name" { type = string }
 #------------------------------------------------------------------------------
 #
 variable "keypair_name" { type = string }
 #------------------------------------------------------------------------------
 #
-variable "compute_name" { type = string }
-variable "compute_instance_type" { type = string }
-variable "lab_pwd" { type = string }
-#------------------------------------------------------------------------------
-#
 variable "vpc_id" { type = string }
-variable "public_subnet_id" { type = string }
+variable "public_subnet_ids" { type = list(string) }
 variable "vpc_cidr" { type = string }
 variable "allowlist_sg_id" { type = string }
 #------------------------------------------------------------------------------
