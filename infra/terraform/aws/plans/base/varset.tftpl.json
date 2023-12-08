@@ -61,16 +61,16 @@
           {
             "type": "vars",
             "attributes": {
-              "key": "allowlist_sg_id",
-              "value": "${allowlist_sg_id}",
+              "key": "vpc_allowlist_sg_id",
+              "value": "${vpc_allowlist_sg_id}",
               "category": "terraform"
             }
           },
           {
             "type": "vars",
             "attributes": {
-              "key": "base_tags",
-              "value": "${base_tags}",
+              "key": "base_tags_json",
+              "value": "${base_tags_json}",
               "category": "terraform"
             }
           },

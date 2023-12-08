@@ -11,9 +11,9 @@ variable "isp_sub_domain" { type = string }
 variable "base_tags_json" { type = string }
 variable "keypair_name" { type = string }
 variable "vpc_id" { type = string }
-variable "public_subnet_ids" { type = list(string) }
+variable "vpc_public_subnet_ids" { type = list(string) }
 variable "vpc_cidr" { type = string }
-variable "allowlist_sg_id" { type = string }
+variable "vpc_allowlist_sg_id" { type = string }
 #------------------------------------------------------------------------------
 
 # Terraform loads variables in the following order,

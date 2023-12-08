@@ -20,8 +20,8 @@ data "template_file" "varset_json" {
     vpc_private_subnet_ids   = join(",", module.aws-vpc.vpc_private_subnet_ids)
     vpc_public_subnet_ids    = join(",", module.aws-vpc.vpc_public_subnet_ids)
     keypair_name             = aws_key_pair.new-keypair.key_name
-    allowlist_sg_id          = module.aws-allowlist_sg.allowlist_public_sg_id
-    base_tags                = replace(jsonencode(local.base_tags), "\"", "\\\"")
+    vpc_allowlist_sg_id      = module.aws-allowlist_sg.allowlist_public_sg_id
+    base_tags_json           = replace(jsonencode(local.base_tags), "\"", "\\\"")
     isp_sub_domain           = var.isp_sub_domain
     terraform_cloud_prj_id   = var.terraform_cloud_prj_id
   }
