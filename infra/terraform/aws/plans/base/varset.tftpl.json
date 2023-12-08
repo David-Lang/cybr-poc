@@ -39,7 +39,8 @@
             "attributes": {
               "key": "vpc_private_subnet_ids",
               "value": "${vpc_private_subnet_ids}",
-              "category": "terraform"
+              "category": "terraform",
+              "hcl":true
             }
           },
           {
@@ -47,7 +48,8 @@
             "attributes": {
               "key": "vpc_public_subnet_ids",
               "value": "${vpc_public_subnet_ids}",
-              "category": "terraform"
+              "category": "terraform",
+              "hcl":true
             }
           },
           {
