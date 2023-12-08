@@ -17,8 +17,8 @@ data "template_file" "varset_json" {
     terraform_cloud_prj_id   = var.terraform_cloud_prj_id
     vpc_id                   = module.aws-vpc.vpc_id
     vpc_cidr                 = local.vpc_cidr
-    vpc_private_subnet_ids   = "\"[${join("\",\"", module.aws-vpc.vpc_private_subnet_ids)}\"]"
-    vpc_public_subnet_ids    = "\"[${join("\",\"", module.aws-vpc.vpc_public_subnet_ids)}\"]"
+    vpc_private_subnet_ids   = "\\\"[${join("\\\",\\\"", module.aws-vpc.vpc_private_subnet_ids)}\\\"]"
+    vpc_public_subnet_ids    = "\\\"[${join("\\\",\\\"", module.aws-vpc.vpc_public_subnet_ids)}\\\"]"
     keypair_name             = aws_key_pair.new-keypair.key_name
     vpc_allowlist_sg_id      = module.aws-allowlist_sg.allowlist_public_sg_id
     base_tags_json           = replace(jsonencode(local.base_tags), "\"", "\\\"")
