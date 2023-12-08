@@ -8,8 +8,8 @@ data "conjur_secret" "aws_secret_key" {
   name = var.conjur_id_aws_secret_key
 }
 
-data "template_file" "varset_create" {
-  template = file("${path.module}/varset_create.tftpl.sh")
+data "template_file" "varset_json" {
+  template = file("${path.module}/varset.tftpl.json")
   vars = {
     name_prefix              = local.name_prefix
     terraform_cloud_api_key  = var.terraform_cloud_api_key
@@ -21,6 +21,6 @@ data "template_file" "varset_create" {
     vpc_public_subnet_ids    = join(",", module.aws-vpc.vpc_public_subnet_ids)
     keypair_name             = aws_key_pair.new-keypair.key_name
     allowlist_sg_id          = module.aws-allowlist_sg.allowlist_public_sg_id
-    base_tags                = replace(jsonencode(local.base_tags),"\"", "\\\"")
+    base_tags                = replace(jsonencode(local.base_tags), "\"", "\\\"")
   }
 }
