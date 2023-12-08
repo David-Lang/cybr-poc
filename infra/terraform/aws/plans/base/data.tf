@@ -14,7 +14,7 @@ data "template_file" "varset_json" {
     name_prefix              = local.name_prefix
     terraform_cloud_api_key  = var.terraform_cloud_api_key
     terraform_cloud_org_name = var.terraform_cloud_org_name
-    terraform_cloud_ws_id    = var.terraform_cloud_ws_id
+    terraform_cloud_prj_id   = var.terraform_cloud_prj_id
     vpc_id                   = module.aws-vpc.vpc_id
     vpc_cidr                 = local.vpc_cidr
     vpc_private_subnet_ids   = join(",", module.aws-vpc.vpc_private_subnet_ids)
@@ -22,5 +22,7 @@ data "template_file" "varset_json" {
     keypair_name             = aws_key_pair.new-keypair.key_name
     allowlist_sg_id          = module.aws-allowlist_sg.allowlist_public_sg_id
     base_tags                = replace(jsonencode(local.base_tags), "\"", "\\\"")
+    isp_sub_domain           = var.isp_sub_domain
+    terraform_cloud_prj_id   = var.terraform_cloud_prj_id
   }
 }

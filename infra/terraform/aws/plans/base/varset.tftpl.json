@@ -2,17 +2,17 @@
   "data": {
     "type": "varsets",
     "attributes": {
-      "name": "workspace-${name_prefix}",
+      "name": "project-${name_prefix}",
       "description": "workspace varset ",
       "global": false,
       "priority": false
     },
     "relationships": {
-      "workspaces": {
+      "projects": {
         "data": [
           {
-            "id": "${terraform_cloud_ws_id}",
-            "type": "workspaces"
+            "id": "${terraform_cloud_prj_id}",
+            "type": "projects"
           }
         ]
       },
@@ -71,6 +71,22 @@
             "attributes": {
               "key": "base_tags",
               "value": "${base_tags}",
+              "category": "terraform"
+            }
+          },
+          {
+            "type": "vars",
+            "attributes": {
+              "key": "isp_sub_domain",
+              "value": "${isp_sub_domain}",
+              "category": "terraform"
+            }
+          },
+          {
+            "type": "vars",
+            "attributes": {
+              "key": "terraform_cloud_prj_id",
+              "value": "${terraform_cloud_prj_id}",
               "category": "terraform"
             }
           }

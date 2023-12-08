@@ -1,16 +1,15 @@
 # This file is to define the variables values should be set in .tfvars or other
 #------------------------------------------------------------------------------
-#
+# AWS Settings
 variable "aws_region" { type = string }
-#variable "base_tags" { type = map(string) }
-variable "base_tags_json" { type = string }
-variable "name_prefix" { type = string }
+#------------------------------------------------------------------------------
+# Plan Settings
 variable "plan_name" { type = string }
+variable "isp_sub_domain" { type = string }
 #------------------------------------------------------------------------------
-#
+# Project Settings
+variable "base_tags_json" { type = string }
 variable "keypair_name" { type = string }
-#------------------------------------------------------------------------------
-#
 variable "vpc_id" { type = string }
 variable "public_subnet_ids" { type = list(string) }
 variable "vpc_cidr" { type = string }

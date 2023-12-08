@@ -49,7 +49,7 @@ variable "lab_pwd" {
 }
 #------------------------------------------------------------------------------
 # Terraform Cloud values
-variable "terraform_cloud_api_key" { default = "false" }
-variable "terraform_cloud_org_name" { default = "false" }
+variable "terraform_cloud_api_key" { type = string }
+variable "terraform_cloud_org_name" { type = string }
 variable "terraform_cloud_ws_id" { type = string }
 #------------------------------------------------------------------------------
