@@ -25,10 +25,10 @@ module "lab_vpc" {
     Name = "${var.name_prefix}-default-sg"
   })
 
-  public_subnets = var.public_subnets
+  public_subnets     = var.public_subnets
   public_subnet_tags = merge(var.common_tags)
 
-  private_subnets = var.private_subnets
+  private_subnets     = var.private_subnets
   private_subnet_tags = merge(var.common_tags)
 
 }

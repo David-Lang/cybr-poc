@@ -1,0 +1,16 @@
+*.plan
+*.tfplan
+.terraform*
+*tfstate*
+*secrets.auto.tfvars
+
+*.out
+*.log
+*.swp
+*.pem
+*.ppk
+
+*.idea/workspace.xml
+secrets/*
+test_assets/*
+build_with_secrets.sh

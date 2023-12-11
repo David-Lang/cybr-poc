@@ -1,5 +1,5 @@
 locals {
-  name_prefix = terraform.workspace
+  name_prefix = var.isp_sub_domain
 
   //noinspection HILUnresolvedReference
   vpc_cidr        = "10.${random_integer.random_octet.result}.0.0/16"
@@ -7,12 +7,11 @@ locals {
   private_subnets = ["10.${random_integer.random_octet.result}.20.0/24"]
 
   # Common tags to be assigned to all resources
-  common_tags = {
+  base_tags = {
     Owner     = var.owner
     Purpose   = "cybr-poc"
     Terraform = "true"
     Workspace = terraform.workspace
-    Plan      = "vpc"
     CreatedBy = data.aws_caller_identity.current.arn
     # To prevent installing the SSM Agent
     CA_iSSMExclude = "YES"
@@ -22,4 +21,6 @@ locals {
     # To prevent stopped instance auto deletion
     CA_iEC2Retain = "active"
   }
+
+  common_tags = merge(local.base_tags, { Plan = var.plan_name })
 }
