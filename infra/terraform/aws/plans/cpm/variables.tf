@@ -1,3 +1,5 @@
+# This file is to define the variables values should be set in .tfvars or other
+#------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 # Conjur Settings
 variable "conjur_url" {
@@ -26,30 +28,20 @@ variable "conjur_id_aws_secret_key" {
   type      = string
   sensitive = true
 }
-#
 #------------------------------------------------------------------------------
 # AWS Settings
 variable "aws_region" { type = string }
 #------------------------------------------------------------------------------
 # Plan Settings
 variable "plan_name" { type = string }
-variable "owner" { type = string }
+variable "lab_pwd" { type = string }
 #------------------------------------------------------------------------------
-# Security Group Settings
-variable "allowed_cidr_blocks" {
-  type        = list(string)
-  description = "CIDR blocks to allow public access to. ex. ['2.3.4.5/32', '3.4.5.6/32']"
-}
-#------------------------------------------------------------------------------
-# Compute Settings
-variable "connector_name" { type = string }
-variable "lab_pwd" {
-  type        = string
-  description = "Master Pass must be 12 chars, 2 Upper, 2 Digit, 2 Special"
-}
-#------------------------------------------------------------------------------
-# Terraform Cloud values
-variable "terraform_cloud_api_key" { type = string }
-variable "terraform_cloud_org_name" { type = string }
-variable "terraform_cloud_ws_id" { type = string }
+# Project Settings
+variable "isp_sub_domain" { type = string }
+variable "base_tags_json" { type = string }
+variable "keypair_name" { type = string }
+variable "vpc_id" { type = string }
+variable "vpc_public_subnet_ids" { type = list(string) }
+variable "vpc_cidr" { type = string }
+variable "vpc_allowlist_sg_id" { type = string }
 #------------------------------------------------------------------------------

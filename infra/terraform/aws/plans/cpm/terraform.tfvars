@@ -1,2 +1,1 @@
-plan_name      = "cpm"
-connector_name = "connector-1"
+plan_name = "cpm"

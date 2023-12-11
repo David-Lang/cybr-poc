@@ -10,7 +10,7 @@ resource "aws_instance" "compute" {
 
 resource "aws_eip" "compute" {
   instance = aws_instance.compute.id
-  vpc      = true
+  domain   = "vpc"
   tags     = merge(var.common_tags, { Name = "${var.name_prefix}-${var.compute_name}" })
 }
 
