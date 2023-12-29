@@ -13,3 +13,7 @@ output "compute_fqdn" {
 output "compute_os_user" {
   value = "administrator"
 }
+
+output "compute_public_key" {
+  value = data.aws_key_pair.lab_key_pair.public_key
+}
