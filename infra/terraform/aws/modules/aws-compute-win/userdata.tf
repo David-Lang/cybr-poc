@@ -50,6 +50,8 @@ $sshdConfigContent | Set-Content -Path $sshdConfigPath
 # requires powershell 7
 # ssh-keygen -t ed25519 -f $env:USERPROFILE\.ssh\id_ed25519\id_ed25519 -N ""
 
+###-----
+
 # Define the file path
 New-Item -ItemType Directory -Path "$env:USERPROFILE\.ssh\" | Out-Null
 $filePath = "$env:USERPROFILE\.ssh\rsa.pub"
