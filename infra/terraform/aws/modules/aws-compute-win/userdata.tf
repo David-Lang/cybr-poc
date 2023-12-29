@@ -2,6 +2,12 @@ data "template_file" "userdata" {
   template = <<EOF
 <powershell>
 
+###-----
+
+New-Item -Path "C:\init_started.txt" -ItemType File | Out-Null
+
+###-----
+
 Start-Transcript -Append C:\init_log.txt
 start-sleep -s 90
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
@@ -45,12 +51,11 @@ $sshdConfigContent | Set-Content -Path $sshdConfigPath
 # ssh-keygen -t ed25519 -f $env:USERPROFILE\.ssh\id_ed25519\id_ed25519 -N ""
 
 # Define the file path
+New-Item -ItemType Directory -Path "$env:USERPROFILE\.ssh\" | Out-Null
 $filePath = "$env:USERPROFILE\.ssh\rsa.pub"
 $fileContent = @"
 ${data.aws_key_pair.lab_key_pair.public_key}
 "@
-
-# Create a new file and set its contents
 Set-Content -Path $filePath -Value $fileContent
 
 # Output a message indicating that the file has been created
