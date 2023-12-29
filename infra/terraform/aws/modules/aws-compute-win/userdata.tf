@@ -21,7 +21,7 @@ Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.e
 # Download and install PowerShell 7.4
 Invoke-WebRequest -Uri https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-x64.msi -OutFile $env:TEMP\PowerShell-7.4.0-win-x64.msi
 Start-Process -Wait -FilePath msiexec -ArgumentList "/i $env:TEMP\PowerShell-7.4.0-win-x64.msi /quiet /qn /norestart"
-Remove-Item $env:TEMP\PowerShell-7.4.0-win-x64.msi
+#Remove-Item $env:TEMP\PowerShell-7.4.0-win-x64.msi
 
 ###-----
 
@@ -41,7 +41,22 @@ $sshdConfigContent | Set-Content -Path $sshdConfigPath
 
 ###-----
 
-ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
+# requires powershell 7
+# ssh-keygen -t ed25519 -f $env:USERPROFILE\.ssh\id_ed25519\id_ed25519 -N ""
+
+# Define the file path
+$filePath = "$env:USERPROFILE\.ssh\rsa.pub"
+$fileContent = @"
+${data.aws_key_pair.lab_key_pair.public_key}
+"@
+
+# Create a new file and set its contents
+Set-Content -Path $filePath -Value $fileContent
+
+# Output a message indicating that the file has been created
+Write-Host "File created at: $filePath"
+
+###-----
 
 # By default the ssh-agent service is disabled. Configure it to start automatically.
 Get-Service ssh-agent | Set-Service -StartupType Automatic
@@ -49,10 +64,10 @@ Start-Service ssh-agent
 Get-Service ssh-agent
 
 # Now load your key files into ssh-agent
-ssh-add $env:USERPROFILE\.ssh\id_ed25519
+ssh-add $env:USERPROFILE\.ssh\rsa.pub
 
 # Get the public key file generated previously on your client
-$authorizedKey = Get-Content -Path $env:USERPROFILE\.ssh\id_ed25519.pub
+$authorizedKey = Get-Content -Path $env:USERPROFILE\.ssh\rsa.pub
 Add-Content -Force -Path $env:ProgramData\ssh\administrators_authorized_keys -Value '$authorizedKey'
 icacls.exe "$env:ProgramData\ssh\administrators_authorized_keys" /inheritance:r /grant "Administrators:F" /grant "SYSTEM:F"
 
@@ -65,6 +80,10 @@ icacls.exe "$env:ProgramData\ssh\administrators_authorized_keys" /inheritance:r 
 #Install-Module -Name PSSharedGoods -Force -Confirm:$false
 #Install-Module -Name Posh-SSH -Force -Confirm:$false
 #Enable-SSHRemoting -Force
+
+###-----
+
+New-Item -Path "C:\init_completed.txt" -ItemType File | Out-Null
 
 ###-----
 
