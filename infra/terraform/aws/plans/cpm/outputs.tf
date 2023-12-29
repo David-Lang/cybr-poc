@@ -18,3 +18,7 @@ output "compute_fqdn" {
 output "compute_os_user" {
   value = "administrator"
 }
+
+output "compute_public_key" {
+  value = module.aws-compute-win.compute_public_key
+}

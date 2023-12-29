@@ -96,7 +96,7 @@ New-Item -Path "C:\init_completed.txt" -ItemType File | Out-Null
 ###-----
 
 Stop-Transcript
-Restart-Computer -ComputerName localhost -Force
+#Restart-Computer -ComputerName localhost -Force
 </powershell>
 EOF
 }
