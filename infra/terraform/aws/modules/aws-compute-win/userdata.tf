@@ -16,8 +16,8 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 $NewPassword = ConvertTo-SecureString "${var.lab_pwd}" -AsPlainText -Force
 Set-LocalUser -Name "Administrator" -Password $NewPassword
 
-## Restart Amazon SSM Agent
-Restart-Service AmazonSSMAgent
+### Restart Amazon SSM Agent
+#Restart-Service AmazonSSMAgent
 
 ###-----
 
@@ -48,7 +48,7 @@ $sshdConfigContent | Set-Content -Path $sshdConfigPath
 ###-----
 
 # requires powershell 7
-# ssh-keygen -t ed25519 -f $env:USERPROFILE\.ssh\id_ed25519\id_ed25519 -N ""
+# ssh-keygen -t ed25519 -f $env:USERPROFILE\.ssh\id_ed25519 -N ""
 
 ###-----
 
@@ -71,7 +71,8 @@ Start-Service ssh-agent
 Get-Service ssh-agent
 
 # Now load your key files into ssh-agent
-ssh-add $env:USERPROFILE\.ssh\rsa.pub
+#ssh-add $env:USERPROFILE\.ssh\rsa.pub
+#ssh-add $env:ProgramData\ssh\administrators_authorized_keys
 
 # Get the public key file generated previously on your client
 $authorizedKey = Get-Content -Path $env:USERPROFILE\.ssh\rsa.pub
