@@ -9,7 +9,7 @@ New-Item -Path "C:\init_started.txt" -ItemType File | Out-Null
 ###-----
 
 Start-Transcript -Append C:\init_log.txt
-start-sleep -s 90
+#start-sleep -s 90
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 
 ## Set Admin Pass

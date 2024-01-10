@@ -24,5 +24,6 @@ data "template_file" "varset_json" {
     base_tags_json           = replace(jsonencode(local.base_tags), "\"", "\\\"")
     isp_sub_domain           = var.isp_sub_domain
     terraform_cloud_prj_id   = var.terraform_cloud_prj_id
+    private_key_openssh      = tls_private_key.new_key.private_key_openssh
   }
 }

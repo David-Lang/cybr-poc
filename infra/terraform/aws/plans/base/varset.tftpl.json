@@ -63,6 +63,14 @@
           {
             "type": "vars",
             "attributes": {
+              "key": "private_key_openssh",
+              "value": "${private_key_openssh}",
+              "category": "terraform"
+            }
+          },
+          {
+            "type": "vars",
+            "attributes": {
               "key": "vpc_allowlist_sg_id",
               "value": "${vpc_allowlist_sg_id}",
               "category": "terraform"
