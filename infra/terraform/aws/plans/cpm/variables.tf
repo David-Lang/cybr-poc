@@ -40,6 +40,7 @@ variable "lab_pwd" { type = string }
 variable "isp_sub_domain" { type = string }
 variable "base_tags_json" { type = string }
 variable "keypair_name" { type = string }
+variable "public_key_openssh_b64" { type = string }
 variable "vpc_id" { type = string }
 variable "vpc_public_subnet_ids" { type = list(string) }
 variable "vpc_cidr" { type = string }

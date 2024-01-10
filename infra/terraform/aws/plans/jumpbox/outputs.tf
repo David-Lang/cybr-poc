@@ -16,5 +16,5 @@ output "compute_fqdn" {
 }
 
 output "compute_os_user" {
-  value = "administrator"
+  value = "ubuntu"
 }
