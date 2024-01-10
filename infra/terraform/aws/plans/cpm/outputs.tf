@@ -19,6 +19,6 @@ output "compute_os_user" {
   value = "administrator"
 }
 
-output "compute_public_key" {
-  value = module.aws-compute-win.compute_public_key
+output "compute_os_user_openssh_public_b64" {
+  value = module.aws-compute-win.compute_os_user_openssh_public_b64
 }
