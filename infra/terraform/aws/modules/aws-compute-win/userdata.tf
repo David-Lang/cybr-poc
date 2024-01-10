@@ -52,16 +52,16 @@ $sshdConfigContent | Set-Content -Path $sshdConfigPath
 
 ###-----
 
-# Define the file path
-New-Item -ItemType Directory -Path "$env:USERPROFILE\.ssh\" | Out-Null
-$filePath = "$env:USERPROFILE\.ssh\openssh.pub"
-$fileContent = @"
-${base64decode(var.public_key_openssh_b64)}
-"@
-Set-Content -Path $filePath -Value $fileContent
-
-# Output a message indicating that the file has been created
-Write-Host "File created at: $filePath"
+## Define the file path
+#New-Item -ItemType Directory -Path "$env:USERPROFILE\.ssh\" | Out-Null
+#$filePath = "$env:USERPROFILE\.ssh\openssh.pub"
+#$fileContent = @"
+#${base64decode(var.public_key_openssh_b64)}
+#"@
+#Set-Content -Path $filePath -Value $fileContent
+#
+## Output a message indicating that the file has been created
+#Write-Host "File created at: $filePath"
 
 ###-----
 
@@ -76,7 +76,7 @@ Get-Service ssh-agent
 
 # Get the public key file generated previously on your client
 $authorizedKey = Get-Content -Path $env:USERPROFILE\.ssh\rsa.pub
-Add-Content -Force -Path $env:ProgramData\ssh\administrators_authorized_keys -Value '$authorizedKey'
+Add-Content -Force -Path $env:ProgramData\ssh\administrators_authorized_keys -Value '${base64decode(var.public_key_openssh_b64)}'
 icacls.exe "$env:ProgramData\ssh\administrators_authorized_keys" /inheritance:r /grant "Administrators:F" /grant "SYSTEM:F"
 
 ###-----
