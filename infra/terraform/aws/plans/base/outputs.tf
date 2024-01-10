@@ -33,11 +33,6 @@ output "name_prefix" {
   sensitive = false
 }
 
-output "terraform_cloud_api_key" {
-  value     = var.terraform_cloud_api_key
-  sensitive = false
-}
-
 output "terraform_cloud_org_name" {
   value     = var.terraform_cloud_org_name
   sensitive = false
