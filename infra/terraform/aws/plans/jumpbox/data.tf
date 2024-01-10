@@ -1,3 +1,5 @@
+data "aws_caller_identity" "current" {}
+
 data "conjur_secret" "aws_access_key" {
   name = var.conjur_id_aws_access_key
 }
