@@ -17,3 +17,7 @@ output "compute_os_user" {
 output "compute_os_user_openssh_public_b64" {
   value = var.public_key_openssh_b64
 }
+
+output "compute_public_key" {
+  value = data.aws_key_pair.lab_key_pair.public_key
+}
