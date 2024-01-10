@@ -65,5 +65,5 @@ output "keypair_public_key_openssh" {
 
 output "keypair_private_key_openssh" {
   value     = tls_private_key.new_key.private_key_openssh
-  sensitive = false
+  sensitive = true
 }
