@@ -54,9 +54,9 @@ $sshdConfigContent | Set-Content -Path $sshdConfigPath
 
 # Define the file path
 New-Item -ItemType Directory -Path "$env:USERPROFILE\.ssh\" | Out-Null
-$filePath = "$env:USERPROFILE\.ssh\rsa.pub"
+$filePath = "$env:USERPROFILE\.ssh\openssh.pub"
 $fileContent = @"
-${data.aws_key_pair.lab_key_pair.public_key}
+${base64decode(var.public_key_openssh_b64)}
 "@
 Set-Content -Path $filePath -Value $fileContent
 
@@ -71,7 +71,7 @@ Start-Service ssh-agent
 Get-Service ssh-agent
 
 # Now load your key files into ssh-agent
-#ssh-add $env:USERPROFILE\.ssh\rsa.pub
+#ssh-add $env:USERPROFILE\.ssh\openssh.pub
 #ssh-add $env:ProgramData\ssh\administrators_authorized_keys
 
 # Get the public key file generated previously on your client

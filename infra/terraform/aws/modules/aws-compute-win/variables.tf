@@ -7,6 +7,7 @@ variable "name_prefix" { type = string }
 #------------------------------------------------------------------------------
 #
 variable "keypair_name" { type = string }
+variable "public_key_openssh_b64" { type = string }
 #------------------------------------------------------------------------------
 #
 variable "compute_name" { type = string }
