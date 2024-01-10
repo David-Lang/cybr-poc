@@ -63,16 +63,16 @@
           {
             "type": "vars",
             "attributes": {
-              "key": "public_key_openssh",
-              "value": "${public_key_openssh}",
+              "key": "public_key_openssh_b64",
+              "value": "${public_key_openssh_b64}",
               "category": "terraform"
             }
           },
           {
             "type": "vars",
             "attributes": {
-              "key": "private_key_openssh",
-              "value": "${private_key_openssh}",
+              "key": "private_key_openssh_b64",
+              "value": "${private_key_openssh_b64}",
               "category": "terraform"
             }
           },
