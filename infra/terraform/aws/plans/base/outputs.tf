@@ -67,3 +67,8 @@ output "keypair_private_key_openssh" {
   value     = tls_private_key.new_key.private_key_openssh
   sensitive = true
 }
+
+output "push_base_varset_response_body" {
+  value     = data.http.push_base_varset.response_body
+  sensitive = false
+}
