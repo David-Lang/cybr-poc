@@ -1,0 +1,1 @@
+scp -i ossh.pri cpm_connector_ps1 administrator@$CPM_FQDN:cpm_connector.ps1

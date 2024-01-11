@@ -1,0 +1,1 @@
+ssh -i ossh.pri administrator@$CPM_FQDN
