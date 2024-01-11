@@ -1,0 +1,16 @@
+#!/usr/bin/expect
+
+spawn ./ssh_to_cpm.sh
+
+# Expect password prompt
+expect "PS *> "
+send "ls\r"
+expect "PS *> "
+send "Set-Item -Path Env:ClientOverwrite -Value 'true'\r"
+expect "PS *> "
+send "./cpm_connector.ps1\r"
+expect "PS *> "
+send "exit\r"
+
+# Wait for the command to complete
+expect eof

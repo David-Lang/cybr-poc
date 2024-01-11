@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-# Conjur Settings
+# POC Infra Builder Conjur Settings
 variable "conjur_url" {
   type      = string
   sensitive = true

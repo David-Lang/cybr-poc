@@ -1,0 +1,15 @@
+# Applied to: data
+# Append policy
+---
+# Creates the workload identity
+- !host
+  id: workloads/"${workload_name}".bot
+  annotations:
+    authn/api-key: true
+
+# Grants the safe access to the workload
+- !grant
+  roles:
+    - !group  vault/"${safe_name}"/delegation/consumers
+  members:
+    - !host workloads/"${workload_name}".bot
