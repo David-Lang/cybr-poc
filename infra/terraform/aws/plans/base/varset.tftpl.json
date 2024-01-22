@@ -107,6 +107,14 @@
               "value": "${terraform_cloud_prj_id}",
               "category": "terraform"
             }
+          },
+          {
+            "type": "vars",
+            "attributes": {
+              "key": "aws_region",
+              "value": "${aws_region}",
+              "category": "terraform"
+            }
           }
         ]
       }

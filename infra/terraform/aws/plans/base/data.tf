@@ -26,5 +26,6 @@ data "template_file" "varset_json" {
     terraform_cloud_prj_id   = var.terraform_cloud_prj_id
     public_key_openssh_b64   = base64encode(tls_private_key.new_key.public_key_openssh)
     private_key_openssh_b64  = base64encode(tls_private_key.new_key.private_key_openssh)
+    aws_region               = var.aws_region
   }
 }
