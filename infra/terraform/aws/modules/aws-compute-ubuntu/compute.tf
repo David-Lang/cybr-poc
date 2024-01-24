@@ -32,6 +32,14 @@ resource "aws_security_group" "jumpbox_sg" {
     cidr_blocks = [var.vpc_cidr]
   }
 
+  ingress {
+    description = "LOCAL_HTTP"
+    from_port   = 8080
+    to_port     = 8089
+    protocol    = "tcp"
+    cidr_blocks = [var.vpc_cidr]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
