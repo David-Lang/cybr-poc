@@ -4,7 +4,7 @@ module "aws-compute-ubuntu" {
   keypair_name          = var.keypair_name
   name_prefix           = local.name_prefix
   common_tags           = local.common_tags
-  compute_name          = "jumpbox"
+  compute_name          = var.compute_name
   compute_instance_type = "t3.small"
   vpc_id                = var.vpc_id
   vpc_cidr              = var.vpc_cidr
