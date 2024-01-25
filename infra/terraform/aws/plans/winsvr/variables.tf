@@ -36,6 +36,9 @@ variable "aws_region" { type = string }
 variable "plan_name" { type = string }
 variable "lab_pwd" { type = string }
 #------------------------------------------------------------------------------
+# Compute Settings
+variable "compute_name" { type = string }
+#------------------------------------------------------------------------------
 # Project Settings
 variable "isp_sub_domain" { type = string }
 variable "base_tags_json" { type = string }
