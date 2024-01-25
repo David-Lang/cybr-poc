@@ -1,5 +1,5 @@
 locals {
-  name_prefix = var.isp_sub_domain
+  name_prefix = terraform.workspace
 
   //noinspection HILUnresolvedReference
   vpc_cidr        = "10.${random_integer.random_octet.result}.0.0/16"
