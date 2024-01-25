@@ -44,6 +44,9 @@ variable "vpc_public_subnet_ids" { type = list(string) }
 variable "vpc_cidr" { type = string }
 variable "vpc_allowlist_sg_id" { type = string }
 #------------------------------------------------------------------------------
+# Compute Settings
+variable "compute_name" { type = string }
+#------------------------------------------------------------------------------
 
 # Terraform loads variables in the following order,
 # with later sources taking precedence over earlier ones:
