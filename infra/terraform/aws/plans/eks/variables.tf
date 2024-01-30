@@ -43,7 +43,6 @@ variable "vpc_id" { type = string }
 variable "vpc_private_subnet_ids" { type = list(string) }
 variable "vpc_public_subnet_ids" { type = list(string) }
 variable "vpc_cidr" { type = string }
-variable "vpc_allowlist_sg_id" { type = string }
 #------------------------------------------------------------------------------
 # EKS Settings
 

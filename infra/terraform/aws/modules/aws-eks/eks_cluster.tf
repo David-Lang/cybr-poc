@@ -76,7 +76,7 @@ module "eks" {
       from_port   = 443
       to_port     = 443
       protocol    = "tcp"
-      cidr_blocks = [var.vpc_cidr, var.cidr_allow_block,]
+      cidr_blocks = [var.vpc_cidr]
     }
   }
 

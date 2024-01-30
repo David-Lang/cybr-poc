@@ -13,10 +13,6 @@ variable "vpc_id" {
 }
 
 variable "vpc_cidr" { type = string }
-variable "cidr_allow_block" {
-  type        = string
-  description = "CIDR block (ex.10.10.10.10/32) to allow access to management ports: ie. SSH 22"
-}
 
 variable "private_subnets" {
   type        = list(string)
