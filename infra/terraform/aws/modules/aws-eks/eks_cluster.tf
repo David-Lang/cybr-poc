@@ -35,9 +35,9 @@ module "eks" {
   eks_managed_node_groups = {
     "${var.name_prefix}-eks1" = {}
     "${var.name_prefix}-eks2" = {
-      min_size     = 1
-      max_size     = 3
-      desired_size = 1
+      min_size      = 1
+      max_size      = 3
+      desired_size  = 1
       capacity_type = "SPOT"
     }
   }

@@ -1,2 +1,2 @@
-plan_name = "jumpbox"
+plan_name    = "jumpbox"
 compute_name = "jumpbox"
