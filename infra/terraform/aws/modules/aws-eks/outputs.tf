@@ -1,0 +1,19 @@
+output "cluster_id" {
+  description = "EKS cluster Id"
+  value       = module.eks.cluster_id
+}
+
+output "cluster_endpoint" {
+  description = "Endpoint for EKS control plane."
+  value       = module.eks.cluster_endpoint
+}
+
+output "k8s_user_access_key" {
+  description = "K8s User Access Key"
+  value       = aws_iam_access_key.k8s_user.id
+}
+
+output "k8s_user_secret" {
+  description = "K8s User Secret"
+  value       = aws_iam_access_key.k8s_user.secret
+}
