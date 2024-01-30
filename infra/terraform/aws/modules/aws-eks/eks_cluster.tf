@@ -42,16 +42,16 @@ module "eks" {
     }
   }
 
-#  cluster_security_group_additional_rules = {
-#    local-https = {
-#      type        = "ingress"
-#      description = "Local-HTTPS"
-#      from_port   = 443
-#      to_port     = 443
-#      protocol    = "tcp"
-#      cidr_blocks = [var.vpc_cidr]
-#    }
-#  }
+  cluster_security_group_additional_rules = {
+    local-https = {
+      type        = "ingress"
+      description = "Local-HTTPS"
+      from_port   = 443
+      to_port     = 443
+      protocol    = "tcp"
+      cidr_blocks = [var.vpc_cidr]
+    }
+  }
 
   node_security_group_additional_rules = {
     mysql-egress = {
@@ -76,15 +76,7 @@ module "eks" {
       from_port   = 443
       to_port     = 443
       protocol    = "tcp"
-      cidr_blocks = [var.vpc_cidr]
-    },
-    https-ingress = {
-      type        = "ingress"
-      description = "cybrlab_cidr1"
-      from_port   = 443
-      to_port     = 443
-      protocol    = "tcp"
-      cidr_blocks = [var.cidr_allow_block, var.vpc_cidr]
+      cidr_blocks = [var.vpc_cidr, var.cidr_allow_block,]
     }
   }
 
