@@ -8,13 +8,13 @@ module "eks" {
   # v18.30.3 is working with manage_aws_auth_configmap in combination with the K8s provider
   # Test aws_auth_users when updating versions
   # version = "18.30.3"
-  version = "~> 19.21"
+  version = "~> 18.30.3"
 
   vpc_id     = var.vpc_id
   subnet_ids = var.private_subnets
 
   cluster_name                    = local.cluster_name
-  cluster_version                 = "1.29"
+  cluster_version                 = "1.27"
   cluster_enabled_log_types       = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   cluster_endpoint_private_access = true
   # must be accessible from where terraform is running from to establish manage_aws_auth_configmap
