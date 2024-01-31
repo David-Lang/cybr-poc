@@ -19,6 +19,14 @@ variable "private_subnets" {
   description = "subnets to use for EKS"
 }
 
+variable "keypair_name" { type = string }
+
+#------------------------------------------------------------------------------
+# Security Group Settings
+variable "allowed_cidr_blocks" {
+  type        = list(string)
+  description = "CIDR blocks to allow public access to. ex. ['2.3.4.5/32', '3.4.5.6/32']"
+}
 #------------------------------------------------------------------------------
 
 # Terraform loads variables in the following order,
