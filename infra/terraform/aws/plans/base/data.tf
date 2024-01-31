@@ -31,7 +31,7 @@ data "template_file" "varset_json" {
 }
 
 data "template_file" "base_tfvars" {
-  template = file("${path.module}/secrets.base.auto.tfvars.tmpl.out")
+  template = file("${path.module}/base.auto.tfvars.tmpl.out")
   vars = {
     aws_region               = var.aws_region
     base_tags_json           = replace(jsonencode(local.base_tags), "\"", "\\\"")
