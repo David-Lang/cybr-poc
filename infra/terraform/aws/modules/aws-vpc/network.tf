@@ -26,9 +26,11 @@ module "lab_vpc" {
   })
 
   public_subnets     = var.public_subnets
-  public_subnet_tags = merge(var.common_tags)
+  # Required for EKS (kubernetes.io/role/elb)
+  public_subnet_tags = merge(var.common_tags, { "kubernetes.io/role/elb" = 1 })
 
   private_subnets     = var.private_subnets
-  private_subnet_tags = merge(var.common_tags)
+  # Required for EKS (kubernetes.io/role/internal-elb)
+  private_subnet_tags = merge(var.common_tags, { "kubernetes.io/role/internal-elb" = 1 })
 
 }
