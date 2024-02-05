@@ -14,9 +14,10 @@ module "eks" {
   subnet_ids = var.private_subnets
 
   cluster_name                    = local.cluster_name
-  cluster_version                 = "1.27"
+  cluster_version                 = "1.21"
   cluster_enabled_log_types       = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   cluster_endpoint_private_access = true
+
   # must be accessible from where terraform is running from to establish manage_aws_auth_configmap
   cluster_endpoint_public_access  = true
   cluster_endpoint_public_access_cidrs = var.allowed_cidr_blocks
@@ -97,7 +98,7 @@ module "eks" {
   }
 
   # aws-auth configmap
-  # manage_aws_auth_configmap = true
+  manage_aws_auth_configmap = true
 
   aws_auth_users = [
     {

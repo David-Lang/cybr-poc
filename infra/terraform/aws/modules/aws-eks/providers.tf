@@ -3,7 +3,7 @@ The following 2 data resources are used get around the fact that we have to wait
 for the EKS cluster to be initialised before we can attempt to authenticate.
 */
 
-/*
+
 data "aws_eks_cluster" "default" {
   name = module.eks.cluster_id
 }
@@ -17,7 +17,7 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
   token                  = data.aws_eks_cluster_auth.default.token
 }
-*/
+
 
 #data "aws_eks_cluster" "this" {
 #  name = local.cluster_name
