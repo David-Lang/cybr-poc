@@ -8,6 +8,11 @@ output "cluster_endpoint" {
   value       = module.eks.cluster_endpoint
 }
 
+output "k8s_user_name" {
+  description = "K8s User Name"
+  value       = aws_iam_user.k8s_user.name
+}
+
 output "k8s_user_access_key" {
   description = "K8s User Access Key"
   value       = aws_iam_access_key.k8s_user.id

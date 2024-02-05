@@ -1,3 +1,8 @@
+output "k8s_user_name" {
+  description = "K8s User Name"
+  value       = module.lab-aws-eks.k8s_user_name
+}
+
 output "k8s_user_access_key" {
   description = "K8s User Access Key"
   value       = module.lab-aws-eks.k8s_user_access_key
