@@ -14,7 +14,7 @@ module "eks" {
   subnet_ids = var.private_subnets
 
   cluster_name                    = local.cluster_name
-  cluster_version                 = "1.21"
+  cluster_version                 = "1.27"
   cluster_enabled_log_types       = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   cluster_endpoint_private_access = true
 
