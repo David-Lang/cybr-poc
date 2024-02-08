@@ -20,7 +20,7 @@ module "eks" {
 
   # must be accessible from where terraform is running from to establish manage_aws_auth_configmap
   cluster_endpoint_public_access  = true
-  cluster_endpoint_public_access_cidrs = var.allowed_cidr_blocks
+  cluster_endpoint_public_access_cidrs = concat(var.allowed_cidr_blocks, [var.vpc_cidr])
 
   cluster_addons = {
     coredns = {
