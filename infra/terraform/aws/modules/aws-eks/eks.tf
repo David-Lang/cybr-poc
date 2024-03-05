@@ -4,13 +4,13 @@ module "eks" {
   # v18.30.3 is working with manage_aws_auth_configmap in combination with the K8s provider
   # Test aws_auth_users when updating versions
   # version = "18.30.3"
-  version = "~> 18.30.3"
+  version = "~> 20.2"
 
   vpc_id     = var.vpc_id
   subnet_ids = var.private_subnets
 
   cluster_name                    = local.cluster_name
-  cluster_version                 = "1.27"
+  cluster_version                 = "1.29"
   cluster_enabled_log_types       = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   cluster_endpoint_private_access = true
 
@@ -93,16 +93,16 @@ module "eks" {
     }
   }
 
-  # aws-auth configmap
-  manage_aws_auth_configmap = true
+#  # aws-auth configmap
+#  manage_aws_auth_configmap = true
 
-  aws_auth_users = [
-    {
-      userarn  = aws_iam_user.k8s_user.arn
-      username = aws_iam_user.k8s_user.name
-      groups   = ["system:masters"]
-    }
-  ]
+#  aws_auth_users = [
+#    {
+#      userarn  = aws_iam_user.k8s_user.arn
+#      username = aws_iam_user.k8s_user.name
+#      groups   = ["system:masters"]
+#    }
+#  ]
 
 #  aws_auth_roles = [
 #    {
