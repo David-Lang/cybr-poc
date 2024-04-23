@@ -3,6 +3,7 @@
 .terraform*
 *tfstate*
 *secrets.auto.tfvars
+*secrets.*
 
 *.out
 *.log
