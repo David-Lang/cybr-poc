@@ -36,9 +36,9 @@ variable "isp_sub_domain" { type = string }
 variable "owner" { type = string }
 #------------------------------------------------------------------------------
 # Terraform Cloud values
-variable "terraform_cloud_api_key" { type = string }
-variable "terraform_cloud_org_name" { type = string }
-variable "terraform_cloud_prj_id" { type = string }
+#variable "terraform_cloud_api_key" { type = string }
+#variable "terraform_cloud_org_name" { type = string }
+#variable "terraform_cloud_prj_id" { type = string }
 #------------------------------------------------------------------------------
 # Security Group Settings
 variable "allowed_cidr_blocks" {
