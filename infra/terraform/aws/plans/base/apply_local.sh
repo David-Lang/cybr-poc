@@ -7,4 +7,4 @@ terraform init
 terraform validate
 terraform plan -out="$isp_sub_domain".plan
 terraform apply -auto-approve "$isp_sub_domain".plan
-rm -f local_files.tf
+
