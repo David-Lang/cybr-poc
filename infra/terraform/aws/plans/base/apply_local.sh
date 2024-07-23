@@ -1,7 +1,6 @@
 #!/bin/bash
 rm -f secrets.base.auto.tfvars.out || sleep 0
-cp local_files.tf.local local_files.tf
-isp_sub_domain="test-base"
+isp_sub_domain="put_isp_sub_domain_here"
 terraform workspace new "$isp_sub_domain" 2> /dev/null || sleep 0
 terraform workspace select "$isp_sub_domain"
 terraform init
