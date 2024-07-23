@@ -3,7 +3,7 @@ data "http" "isp_auth" {
   method = "POST"
 
   request_headers = {
-    Content-Type  = "application/vnd.api+json"
+    Content-Type = "application/vnd.api+json"
   }
 
   request_body = data.template_file.isp_auth.rendered
@@ -14,7 +14,7 @@ data "http" "pas_safe" {
   method = "POST"
 
   request_headers = {
-    Content-Type  = "application/vnd.api+json"
+    Content-Type = "application/vnd.api+json"
   }
 
   request_body = data.template_file.pas_safe.rendered

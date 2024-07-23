@@ -9,13 +9,13 @@ data "template_file" "isp_auth" {
 data "template_file" "pas_safe" {
   template = file("${path.module}/pas_safe.tftpl")
   vars = {
-    safe_name     = var.safe_name
+    safe_name = var.safe_name
   }
 }
 
 data "template_file" "pas_safe_conjur_sync" {
   template = file("${path.module}/pas_safe_conjur_sync.tftpl")
   vars = {
-    safe_name     = var.safe_name
+    safe_name = var.safe_name
   }
 }

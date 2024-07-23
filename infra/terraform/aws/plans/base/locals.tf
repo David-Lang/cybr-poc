@@ -2,9 +2,15 @@ locals {
   name_prefix = terraform.workspace
 
   //noinspection HILUnresolvedReference
-  vpc_cidr        = "10.${random_integer.random_octet.result}.0.0/16"
-  public_subnets  = ["10.${random_integer.random_octet.result}.10.0/24"]
-  private_subnets = ["10.${random_integer.random_octet.result}.20.0/24"]
+  vpc_cidr       = "10.${random_integer.random_octet.result}.0.0/16"
+  public_subnets = ["10.${random_integer.random_octet.result}.10.0/24"]
+
+  # EKS requires multiple subnets across AZs
+  private_subnets = [
+    "10.${random_integer.random_octet.result}.20.0/24",
+    "10.${random_integer.random_octet.result}.21.0/24",
+    "10.${random_integer.random_octet.result}.23.0/24"
+  ]
 
   # Common tags to be assigned to all resources
   base_tags = {

@@ -6,8 +6,8 @@ module "aws-vpc" {
   vpc_cidr        = local.vpc_cidr
   public_subnets  = local.public_subnets
   private_subnets = local.private_subnets
-  # enable nat gateway for lambda traffic if needed
-  enable_nat_gateway = false
+#  # enable nat gateway for lambda traffic if needed
+#  enable_nat_gateway = false
 }
 
 module "aws-allowlist_sg" {
