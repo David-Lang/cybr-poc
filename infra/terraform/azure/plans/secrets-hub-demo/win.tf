@@ -15,7 +15,7 @@ resource "azurerm_public_ip" "win_public_ip" {
   name                = "${local.compute_name_win}-public-ip"
   location            = azurerm_resource_group.az_rg.location
   resource_group_name = azurerm_resource_group.az_rg.name
-  allocation_method   = "Dynamic" # Can also be "Static"
+  allocation_method   = "Static" # Can also be "Static" OR "Dynamic"
   sku                 = "Basic"   # Can also be "Standard" depending on requirements
 }
 
@@ -24,7 +24,7 @@ resource "azurerm_virtual_machine" "windows_vm" {
   location                      = azurerm_resource_group.az_rg.location
   resource_group_name           = azurerm_resource_group.az_rg.name
   network_interface_ids         = [azurerm_network_interface.windows_nic.id]
-  vm_size                       = "Standard_DS3_v2"
+  vm_size                       = "Standard_B2s"
   delete_os_disk_on_termination = "true"
 
   storage_os_disk {

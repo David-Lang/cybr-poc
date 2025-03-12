@@ -5,7 +5,7 @@ module "aws-compute-ubuntu" {
   name_prefix           = local.name_prefix
   common_tags           = local.common_tags
   compute_name          = var.compute_name
-  compute_instance_type = "t3.small"
+  compute_instance_type = "t3a.small"
   vpc_id                = var.vpc_id
   vpc_cidr              = var.vpc_cidr
   public_subnet_id      = var.vpc_public_subnet_ids[0]

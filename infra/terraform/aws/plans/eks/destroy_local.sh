@@ -11,5 +11,6 @@ answer=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
 # Check the user's answer
 if [ "$answer" == "yes" ]; then
     echo "Proceeding..."
+    export TF_VAR_eks_name="eks_destroy"
     terraform destroy -auto-approve
 fi

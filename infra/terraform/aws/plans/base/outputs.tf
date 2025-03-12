@@ -33,16 +33,6 @@ output "name_prefix" {
   sensitive = false
 }
 
-#output "terraform_cloud_org_name" {
-#  value     = var.terraform_cloud_org_name
-#  sensitive = false
-#}
-#
-#output "terraform_cloud_prj_id" {
-#  value     = var.terraform_cloud_prj_id
-#  sensitive = false
-#}
-
 output "vpc_id" {
   value     = module.aws-vpc.vpc_id
   sensitive = false
@@ -67,14 +57,3 @@ output "keypair_private_key_openssh" {
   value     = tls_private_key.new_key.private_key_openssh
   sensitive = true
 }
-
-#output "push_base_varset_request_body" {
-#  value     = data.http.push_base_varset.request_body
-#  sensitive = false
-#}
-#
-#
-#output "push_base_varset_response_body" {
-#  value     = data.http.push_base_varset.response_body
-#  sensitive = false
-#}
