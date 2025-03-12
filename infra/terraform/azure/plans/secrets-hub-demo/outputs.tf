@@ -6,11 +6,9 @@ output "az_rg_name" {
 output "win_public_ip" {
   value     = azurerm_public_ip.win_public_ip.ip_address
   sensitive = false
-  depends_on = [azurerm_public_ip.win_public_ip]
 }
 
 output "ubuntu_public_ip" {
   value     = azurerm_public_ip.ubuntu_public_ip.ip_address
   sensitive = false
-  depends_on = [azurerm_public_ip.ubuntu_public_ip]
 }

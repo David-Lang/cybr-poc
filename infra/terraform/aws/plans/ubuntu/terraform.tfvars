@@ -1,2 +1,1 @@
-plan_name    = "jumpbox"
-compute_name = "jumpbox"
+plan_name    = "ubuntu"

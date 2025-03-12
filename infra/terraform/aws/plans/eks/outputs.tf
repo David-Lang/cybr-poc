@@ -1,3 +1,8 @@
+output "cluster_name" {
+  description = "EKS Cluster Name"
+  value       = module.lab-aws-eks.cluster_name
+}
+
 output "k8s_user_name" {
   description = "K8s User Name"
   value       = module.lab-aws-eks.k8s_user_name

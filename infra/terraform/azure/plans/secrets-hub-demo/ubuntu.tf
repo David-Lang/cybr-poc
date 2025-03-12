@@ -2,7 +2,7 @@ resource "azurerm_public_ip" "ubuntu_public_ip" {
   name                = "${local.compute_name_ubuntu}-public-ip"
   location            = azurerm_resource_group.az_rg.location
   resource_group_name = azurerm_resource_group.az_rg.name
-  allocation_method   = "Dynamic" # Can also be "Static"
+  allocation_method   = "Static" # Can also be "Static" OR "Dynamic"
   sku                 = "Basic"   # Can also be "Standard" depending on requirements
 }
 
@@ -24,7 +24,7 @@ resource "azurerm_virtual_machine" "ubuntu_vm" {
   location                      = azurerm_resource_group.az_rg.location
   resource_group_name           = azurerm_resource_group.az_rg.name
   network_interface_ids         = [azurerm_network_interface.ubuntu_nic.id]
-  vm_size                       = "Standard_DS1_v2"
+  vm_size                       = "Standard_B1s"
   delete_os_disk_on_termination = "true"
 
   storage_os_disk {

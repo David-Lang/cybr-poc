@@ -46,8 +46,13 @@ variable "vpc_cidr" { type = string }
 #------------------------------------------------------------------------------
 # EKS Settings
 #------------------------------------------------------------------------------
+variable "eks_name" { type = string }
 # Security Group Settings
 variable "allowed_cidr_blocks" {
+  type        = list(string)
+  description = "CIDR blocks to allow public access to. ex. ['2.3.4.5/32', '3.4.5.6/32']"
+}
+variable "allowed_cidr_blocks_kubectl" {
   type        = list(string)
   description = "CIDR blocks to allow public access to. ex. ['2.3.4.5/32', '3.4.5.6/32']"
 }

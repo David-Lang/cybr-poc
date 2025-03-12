@@ -11,5 +11,5 @@ module "aws-compute-win" {
   public_subnet_id       = var.vpc_public_subnet_ids[0]
   vpc_cidr               = var.vpc_cidr
   vpc_id                 = var.vpc_id
-  compute_instance_type  = "t3.medium"
+  compute_instance_type  = "t3a.medium"
 }

@@ -13,7 +13,7 @@ module "lab_vpc" {
 
   create_igw              = true
   # NAT is mandatory for Lambdas, and might be required for EKS depending on config
-  enable_nat_gateway      = true
+  enable_nat_gateway      = false
   single_nat_gateway      = true
   enable_dns_hostnames    = true
   map_public_ip_on_launch = true

@@ -1,7 +1,10 @@
 #!/bin/bash
-compute_name="test-winsvr"
+compute_name="winsvr-jump"
 
 echo "Terraform will Apply $compute_name"
+echo "Using ../base/secrets.init.auto.tfvars"
+echo "Using ../base/secrets.base.auto.tfvars.out"
+echo "Using secrets.winsvr.auto.tfvars"
 echo "Do you want to proceed? (yes/no)"
 read -r answer
 
@@ -14,6 +17,8 @@ if [ "$answer" == "yes" ]; then
 
     cp -f ../base/secrets.init.auto.tfvars secrets.init.auto.tfvars
     cp -f ../base/secrets.base.auto.tfvars.out secrets.base.auto.tfvars
+
+    export TF_VAR_compute_name="$compute_name"
 
     terraform workspace new "$compute_name" 2> /dev/null || sleep 0
     terraform workspace select "$compute_name"

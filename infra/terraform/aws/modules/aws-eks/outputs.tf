@@ -1,6 +1,6 @@
-output "cluster_id" {
-  description = "EKS cluster Id"
-  value       = module.eks.cluster_id
+output "cluster_name" {
+  description = "EKS Cluster Name"
+  value       = module.eks.cluster_name
 }
 
 output "cluster_endpoint" {
