@@ -11,6 +11,10 @@ terraform {
   }
 }
 
+terraform {
+  backend "s3" {}
+}
+
 provider "conjur" {
   appliance_url = var.conjur_url
   account       = var.conjur_account
