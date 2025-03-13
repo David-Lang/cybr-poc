@@ -53,10 +53,10 @@ variable "allowed_cidr_blocks" {
   description = "CIDR blocks to allow public access to. ex. ['2.3.4.5/32', '3.4.5.6/32']"
 }
 variable "allowed_cidr_blocks_kubectl" {
-  type        = list(string)
+  type = list(string)
   # this allows to add additional IPs to the allowed cidr that are just specific to K8s api
   # default to empty list to allow for this to be an optional param
-  default = []
+  default     = []
   description = "CIDR blocks to allow public access to. ex. ['2.3.4.5/32', '3.4.5.6/32']"
 }
 #------------------------------------------------------------------------------
