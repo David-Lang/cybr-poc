@@ -13,21 +13,21 @@ module "eks" {
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
 
-  cluster_name = local.cluster_name
-  cluster_version = "1.32" # (Released on January 23, 2025; standard support until March 23, 2026)
-  cluster_enabled_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+  cluster_name                    = local.cluster_name
+  cluster_version                 = "1.32" # (Released on January 23, 2025; standard support until March 23, 2026)
+  cluster_enabled_log_types       = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   cluster_endpoint_private_access = true
 
   # must be accessible from where terraform is running from to establish manage_aws_auth_configmap
-  cluster_endpoint_public_access = true
+  cluster_endpoint_public_access       = true
   cluster_endpoint_public_access_cidrs = concat(var.allowed_cidr_blocks, [local.runner_ip_cidr])
 
   # Optional: Adds the current caller identity as an administrator via cluster access entry
   enable_cluster_creator_admin_permissions = true
 
-  tags = merge(var.common_tags, { Name = "${var.name_prefix}-eks" })
+  tags                        = merge(var.common_tags, { Name = "${var.name_prefix}-eks" })
   cluster_security_group_tags = merge(var.common_tags, { Name = "${var.name_prefix}-eks-cluster-sg" })
-  node_security_group_tags = merge(var.common_tags, { Name = "${var.name_prefix}-eks-node-sg" })
+  node_security_group_tags    = merge(var.common_tags, { Name = "${var.name_prefix}-eks-node-sg" })
 
   cluster_addons = {
     coredns = {
@@ -42,10 +42,10 @@ module "eks" {
   }
 
   eks_managed_node_group_defaults = {
-    ami_type  = "AL2_x86_64"
-    disk_size = 40
+    ami_type       = "AL2_x86_64"
+    disk_size      = 40
     instance_types = ["t3a.small"]
-    key_name  = var.keypair_name
+    key_name       = var.keypair_name
   }
 
   eks_managed_node_groups = {
@@ -98,9 +98,9 @@ module "eks_auth" {
 
   aws_auth_users = [
     {
-          userarn  = aws_iam_user.k8s_user.arn
-          username = aws_iam_user.k8s_user.name
-          groups = ["system:masters"]
+      userarn  = aws_iam_user.k8s_user.arn
+      username = aws_iam_user.k8s_user.name
+      groups   = ["system:masters"]
     }
   ]
 }
