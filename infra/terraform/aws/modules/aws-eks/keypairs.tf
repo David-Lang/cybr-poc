@@ -16,8 +16,8 @@ resource "aws_key_pair" "eks_keypair" {
 
 # Save the private key locally
 resource "local_file" "eks_private_key" {
-  filename = "${path.module}/my-eks-keypair.pem"
-  content  = tls_private_key.eks_keypair.private_key_pem
+  filename        = "${path.module}/my-eks-keypair.pem"
+  content         = tls_private_key.eks_keypair.private_key_pem
   file_permission = "0600"
 }
 
