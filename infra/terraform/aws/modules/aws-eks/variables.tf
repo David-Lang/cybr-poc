@@ -19,7 +19,7 @@ variable "private_subnets" {
   description = "subnets to use for EKS"
 }
 
-variable "keypair_name" { type = string }
+# variable "keypair_name" { type = string }
 
 #------------------------------------------------------------------------------
 # Security Group Settings
