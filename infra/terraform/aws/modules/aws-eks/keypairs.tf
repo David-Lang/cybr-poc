@@ -6,7 +6,7 @@ resource "tls_private_key" "eks_keypair" {
 
 # Create an AWS key pair using the generated public key
 resource "aws_key_pair" "eks_keypair" {
-  key_name   = "my-eks-keypair"
+  key_name   = "${module.eks.cluster_name}-keypair"
   public_key = tls_private_key.eks_keypair.public_key_openssh
 
   tags = {
