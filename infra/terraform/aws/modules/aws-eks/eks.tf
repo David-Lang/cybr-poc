@@ -45,7 +45,7 @@ module "eks" {
     ami_type       = "AL2_x86_64"
     disk_size      = 40
     instance_types = ["t3a.small"]
-    key_name       = aws_key_pair.eks_keypair.public_key
+    key_name       = aws_key_pair.eks_keypair.key_name
   }
 
   eks_managed_node_groups = {
