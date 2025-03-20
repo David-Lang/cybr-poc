@@ -32,8 +32,9 @@ variable "aws_region" { type = string }
 #------------------------------------------------------------------------------
 # Plan Settings
 variable "plan_name" { type = string }
-variable "isp_sub_domain" { type = string }
 variable "owner" { type = string }
+variable "isp_sub_domain" { type = string }
+variable "name_prefix" { type = string }
 #------------------------------------------------------------------------------
 # Security Group Settings
 variable "allowed_cidr_blocks" {
