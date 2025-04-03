@@ -1,1 +1,1 @@
-plan_name    = "ubuntu"
+plan_name = "ubuntu"
