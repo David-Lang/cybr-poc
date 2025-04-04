@@ -35,6 +35,8 @@ variable "aws_region" { type = string }
 # Plan Settings
 variable "plan_name" { type = string }
 variable "isp_sub_domain" { type = string }
+variable "name_prefix" { type = string }
+
 #------------------------------------------------------------------------------
 # Project Settings
 variable "base_tags_json" { type = string }
