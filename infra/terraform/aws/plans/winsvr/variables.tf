@@ -34,13 +34,13 @@ variable "aws_region" { type = string }
 #------------------------------------------------------------------------------
 # Plan Settings
 variable "plan_name" { type = string }
+variable "name_prefix" { type = string }
 variable "lab_pwd" { type = string }
 #------------------------------------------------------------------------------
 # Compute Settings
 variable "compute_name" { type = string }
 #------------------------------------------------------------------------------
 # Project Settings
-variable "isp_sub_domain" { type = string }
 variable "base_tags_json" { type = string }
 variable "keypair_name" { type = string }
 variable "public_key_openssh_b64" { type = string }
