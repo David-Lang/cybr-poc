@@ -45,10 +45,7 @@ variable "base_tags_json" { type = string }
 variable "keypair_name" { type = string }
 variable "public_key_openssh_b64" { type = string }
 variable "vpc_id" { type = string }
-variable "vpc_public_subnet_ids" {
-  type      = list(string)
-  ephemeral = true
-}
+variable "vpc_public_subnet_ids" { type = list(string) }
 variable "vpc_cidr" { type = string }
 variable "vpc_allowlist_sg_id" { type = string }
 #------------------------------------------------------------------------------
