@@ -1,1 +1,1 @@
-plan_name    = "winsvr"
+plan_name = "winsvr"
