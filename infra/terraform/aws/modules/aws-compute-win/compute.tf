@@ -6,6 +6,10 @@ resource "aws_instance" "compute" {
   vpc_security_group_ids = [aws_security_group.compute_win_sg.id, var.allowlist_sg_id]
   subnet_id              = var.public_subnet_id
   tags                   = merge(var.common_tags, { Name = "${var.name_prefix}-${var.compute_name}" })
+  ebs_block_device {
+    device_name = "/dev/sda1"
+    volume_size = 40
+  }
 }
 
 resource "aws_eip" "compute" {
